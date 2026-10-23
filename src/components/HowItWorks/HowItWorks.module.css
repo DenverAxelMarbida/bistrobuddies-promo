@@ -1,0 +1,30 @@
+.section { padding-block: var(--section-space); }
+.heading { max-inline-size: 46rem; }
+.heading > p { margin-block-start: var(--space-6); color: var(--color-muted); }
+.staticList { display: grid; gap: var(--space-12); padding: 0; margin: var(--space-12) 0 0; list-style: none; counter-reset: walkthrough; }
+.staticStep { display: grid; gap: var(--space-8); min-inline-size: 0; padding-block-start: var(--space-6); border-block-start: 1px solid var(--color-line); counter-increment: walkthrough; }
+.stepCopy { min-inline-size: 0; }
+.stepCopy::before { content: '0' counter(walkthrough); display: block; margin-block-end: var(--space-4); color: var(--color-muted); font-size: var(--text-small); font-weight: 700; letter-spacing: 0.08em; }
+.stepCopy p { margin-block-start: var(--space-3); max-inline-size: 32rem; color: var(--color-muted); }
+.stepScreen { inline-size: min(100%, 14rem); margin-inline: auto; }
+.enhanced { display: none; }
+
+@media (min-width: 40rem) {
+  .staticStep { grid-template-columns: minmax(0, 0.85fr) minmax(12rem, 1fr); align-items: center; gap: var(--space-12); }
+  .stepScreen { inline-size: min(100%, 15rem); }
+}
+
+@media (min-width: 64rem) {
+  .section[data-enhanced='true'] .staticList { display: none; }
+  .section[data-enhanced='true'] .enhanced { display: grid; }
+  .enhanced { grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr); align-items: start; gap: var(--space-24); margin-block-start: var(--space-16); }
+  .narrative { grid-column: 2; display: grid; padding: 0; margin: 0; list-style: none; counter-reset: walkthrough; }
+  .narrativeStep { display: grid; align-items: center; min-block-size: 68vh; border-block-start: 1px solid var(--color-line); counter-increment: walkthrough; }
+  .narrativeStep:last-child { border-block-end: 1px solid var(--color-line); }
+  .narrativeStep > div::before { content: '0' counter(walkthrough); display: block; margin-block-end: var(--space-4); color: var(--color-muted); font-size: var(--text-small); font-weight: 700; letter-spacing: 0.08em; }
+  .narrativeStep h3 { font-size: clamp(2rem, 3vw, 3.25rem); }
+  .narrativeStep p { max-inline-size: 32rem; margin-block-start: var(--space-4); color: var(--color-muted); }
+  .visual { position: sticky; inset-block-start: calc(var(--header-height) + var(--space-6)); grid-column: 1; grid-row: 1; display: grid; place-items: center; block-size: min(38rem, calc(100vh - 10rem)); min-inline-size: 0; }
+  .visualLayer { grid-area: 1 / 1; inline-size: 100%; }
+  .desktopScreen { inline-size: min(100%, 15rem); margin-inline: auto; }
+}

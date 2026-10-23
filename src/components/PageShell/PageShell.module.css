@@ -1,15 +1,4 @@
-.section { padding-block: var(--section-space); }
 .editorial { display: grid; gap: var(--space-8); }
-.sectionIntro { margin-block-start: var(--space-6); color: var(--color-muted); }
-.steps { display: grid; gap: var(--space-8); padding: 0; margin: var(--space-12) 0 0; list-style: none; counter-reset: step; }
-.steps li { counter-increment: step; border-block-start: 1px solid var(--color-line); padding-block-start: var(--space-4); }
-.steps li::before { content: '0' counter(step); display: block; margin-block-end: var(--space-4); color: var(--color-muted); font-size: var(--text-small); }
-.steps p { margin-block-start: var(--space-3); color: var(--color-muted); font-size: 0.9375rem; }
-.features { padding-block: var(--section-space); background: var(--color-paper); }
-.featureList { display: grid; gap: var(--space-8); }
-.featureList div + div { padding-block-start: var(--space-8); border-block-start: 1px solid var(--color-line); }
-.featureList dt { margin-block-end: var(--space-3); font-family: var(--font-heading); font-size: 1.6rem; line-height: 1.25; }
-.featureList dd { color: var(--color-muted); }
 .film { padding-block: var(--section-space); }
 .filmInner { display: grid; gap: var(--space-8); }
 .filmInner > p { align-self: end; max-inline-size: 31rem; color: var(--color-muted); }
@@ -24,15 +13,10 @@
 .downloadFacts dd { margin-block-start: var(--space-1); font-weight: 600; }
 .installNote { margin-block-start: var(--space-6); max-inline-size: 32rem; font-size: var(--text-small); }
 
-@media (min-width: 40rem) {
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
 @media (min-width: 48rem) {
   .editorial, .filmInner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-12); }
 }
 
 @media (min-width: 64rem) {
-  .steps { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-6); }
   .editorial { gap: var(--space-24); }
 }
