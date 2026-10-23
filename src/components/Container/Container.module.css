@@ -1,0 +1,5 @@
+.container {
+  inline-size: min(calc(100% - var(--gutter) * 2), var(--container-width));
+  margin-inline: auto;
+  min-inline-size: 0;
+}

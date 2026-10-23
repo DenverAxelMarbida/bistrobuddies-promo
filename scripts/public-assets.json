@@ -1,0 +1,35 @@
+{
+  "restrictedStems": ["home", "checkout-1", "checkout-2", "checkout-3", "order-2"],
+  "restrictedHashes": [
+    "12e7fc31c428921c6b5cab2566ff0ee2bf1003d6007e37b467c8824cca17d0f5",
+    "2d9712235a35f1a1814288abcbc15c0dd43e4f89d95cd21ee7fddbbfcd9e5bf4",
+    "a5d67c430c04596323a3a123adc6453aababa2aa516f66b714114bbe0587331e",
+    "901699bd1a1163e569b96ecc108507ceabf61cda48a5d329a0ece1d316cae696",
+    "caa159ef3ea39e28b15ffd119ee1f2b864d4d49ea39a83524a3777a05ee60efd"
+  ],
+  "approved": {
+    "brand/BistroBuddiesLogo.png": "95d6c63924cad34c5ab2cfbac2eb385de18f5b507c46edb7220feb2b387c50f1",
+    "downloads/BistroBuddies.apk": "12bf82b502500f2eabd9e2942fa60c5624b62e135494a20a4ee8154a446cd5fd",
+    "screenshots/cart-1.jpg": "088f26cbbef76d3275baf2802dec5aa66ccf9a4d0ecdb4ac740bc2e156afbe5d",
+    "screenshots/cart-2.jpg": "bbbc054306543f9dfae9c232a43e1859daf47ce526bc4430415d3775fc565f88",
+    "screenshots/loading.jpg": "8617955b27f5e762dc0624f26004d219a87489c4e5b378334f1c479a7467c829",
+    "screenshots/menu-1.jpg": "f5310f46ddeee2b997c7d61967a9ea206f7ec0569b535791c3a6bc954a7b38fb",
+    "screenshots/menu-10.jpg": "107d741ce90a4f63c5662cf8b7d82401a3c6fbbf49d76c8b2596efbe7d4a4178",
+    "screenshots/menu-11.jpg": "c68ebfbeeb58ac8b2043716ab68b84f2b10abf2a4da36224dde9fc5b3ab721d4",
+    "screenshots/menu-12.jpg": "11d1d85232eeadb691fd2a8acaee8a122f7c7ac7180ecfc30f3085298f61a975",
+    "screenshots/menu-2.jpg": "f9fcbae36520a8791914f8efdab82a5083ca1aa201edca8405829ae5de1fd6cb",
+    "screenshots/menu-3.jpg": "1c4e72f19fa143c59006d97c647f8b9f7ce8e1168c735fff1805f21414257719",
+    "screenshots/menu-4.jpg": "acb5ed609f1e73d1f4d3718e3b6e8f4aaa3accb18a96417dadee57c414274a43",
+    "screenshots/menu-5.jpg": "8c0e0cf27115979bafef2d3cfd8cfd1e20bb0dfa27c1ee2a46d04e2915c10688",
+    "screenshots/menu-6.jpg": "60b2a977a4252dddc502495b76d43cf7c6813f75013a2de658579ce001fe7368",
+    "screenshots/menu-7.jpg": "a67023e3a4752b9c9f14961d417ffc2bd9c54133362ad83c2dfe51f8b02d39a1",
+    "screenshots/menu-8.jpg": "cb2cdd8be80acd343f8c134364e7488b6c6dbf57383ee8d26fda50a8cb1173f0",
+    "screenshots/menu-9.jpg": "39ad069ff1f81e3e8058054ab4901b2db669a5b740b884820bdb33c61657ec7e",
+    "screenshots/my-orders.jpg": "f0a10c6eb67cb4ddfebb1de6f340510e66c9d97dd11f71d64048cb1e2e67178c",
+    "screenshots/order-1.jpg": "a0ed4b4360d465f7f05618de03c67b52dc3b980f85397df819b62cc1eac54818",
+    "screenshots/product-1.jpg": "98f4ab7b9b990af91e37eac3ac5984846cd536380d93bc878550e6fefa7a4686",
+    "screenshots/product-2.jpg": "a08bb3ca72222111536594b924f8be09c6379b2ea5bf87ac8b8cf95fda65b483",
+    "screenshots/receipt-1.jpg": "b4dffa2c9d8b499b1ad8dd689bb75baa7eca0957cc22ccbd548710cab2584eb9",
+    "screenshots/receipt-2.jpg": "99903ced2b08b51b3bdec0f232c31dc79bd22321b04d0b489c2cb3ec3110edde"
+  }
+}

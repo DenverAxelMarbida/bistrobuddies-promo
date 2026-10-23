@@ -1,0 +1,19 @@
+.footer { padding-block: var(--space-12) var(--space-6); }
+.main { display: grid; gap: var(--space-8); }
+.brand { align-self: start; inline-size: 8rem; background: var(--color-white); border-radius: var(--radius-control); }
+.about { min-inline-size: 0; }
+.about p { font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.4; }
+.about address { display: grid; margin-block-start: var(--space-6); color: var(--color-muted); font-size: 0.875rem; font-style: normal; }
+.about a { overflow-wrap: anywhere; }
+.navigation { display: grid; justify-items: start; align-content: start; font-size: 0.875rem; }
+.navigation a, .about a, .bottom a { display: inline-flex; align-items: center; min-block-size: 2.75rem; min-inline-size: 2.75rem; }
+.bottom { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; margin-block-start: var(--space-12); padding-block-start: var(--space-6); border-block-start: 1px solid var(--color-line); font-size: var(--text-small); }
+
+@media (min-width: 40rem) {
+  .main { grid-template-columns: 8rem minmax(0, 1fr); }
+  .navigation { grid-column: 2; }
+}
+@media (min-width: 64rem) {
+  .main { grid-template-columns: 9rem minmax(0, 1fr) auto; gap: var(--space-12); }
+  .navigation { grid-column: auto; }
+}

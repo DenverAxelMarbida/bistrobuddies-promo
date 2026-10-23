@@ -1,0 +1,22 @@
+.ring {
+  display: block;
+  position: relative;
+  inline-size: min(100%, 24rem);
+  aspect-ratio: 1;
+  border: 3px solid var(--color-caramel);
+  border-inline-start-width: 7px;
+  border-block-end-color: transparent;
+  border-radius: 48% 52% 49% 51%;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.ring::after {
+  content: '';
+  position: absolute;
+  inset: 0.35rem;
+  border: 1px solid var(--color-caramel);
+  border-inline-end-width: 4px;
+  border-block-start-color: transparent;
+  border-radius: 51% 49% 52% 48%;
+}

@@ -1,0 +1,8 @@
+.label {
+  margin-block-end: var(--space-6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
