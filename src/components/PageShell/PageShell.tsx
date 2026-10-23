@@ -1,8 +1,8 @@
 import { apk } from '../../content/assets'
 import { Button } from '../Button/Button'
-import { CoffeeRing } from '../CoffeeRing/CoffeeRing'
 import { Container } from '../Container/Container'
-import { ScreenshotFrame } from '../ScreenshotFrame/ScreenshotFrame'
+import { Hero } from '../Hero/Hero'
+import { OriginStory } from '../OriginStory/OriginStory'
 import { SectionLabel } from '../SectionLabel/SectionLabel'
 import styles from './PageShell.module.css'
 
@@ -17,37 +17,8 @@ const steps = [
 export function PageShell() {
   return (
     <main id="main-content" tabIndex={-1}>
-      <section className={styles.hero} aria-labelledby="hero-title">
-        <Container className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <SectionLabel>Coffee shop · Android app</SectionLabel>
-            <h1 id="hero-title">Bistro<wbr />Buddies,<br /><span>in your pocket.</span></h1>
-            <p className={styles.intro}>Browse the menu, choose your size and sugar, and place your coffee order from the app.</p>
-            <div className={styles.actions}>
-              <Button href={apk.href} download={apk.fileName}>Download the Android app</Button>
-              <a className={styles.textLink} href="#how-it-works">See how it works</a>
-            </div>
-            <p className={styles.meta}>Version {apk.version} · {apk.sizeLabel} · Android {apk.minAndroid}+</p>
-          </div>
-          <div className={styles.heroVisual}>
-            <CoffeeRing className={styles.heroRing} />
-            <ScreenshotFrame screenshot="menu-1" priority className={styles.heroScreen} caption="A look inside the BistroBuddies app." />
-          </div>
-        </Container>
-      </section>
-
-      <section className={styles.story} id="story" aria-labelledby="story-title">
-        <Container className={styles.editorial}>
-          <div>
-            <SectionLabel>Our story</SectionLabel>
-            <h2 id="story-title">It started with<br />five coffee-loving friends.</h2>
-          </div>
-          <div className={styles.storyCopy}>
-            <p>BistroBuddies was created by five friends from the Technological Institute of the Philippines, with a shared love of coffee and a goal to make ordering it more convenient.</p>
-            <p>Based in Quezon City, we make our coffee with fresh beans. The app brings the menu, your choices, and your order updates together.</p>
-          </div>
-        </Container>
-      </section>
+      <Hero />
+      <OriginStory />
 
       <section className={styles.section} id="how-it-works" aria-labelledby="walkthrough-title">
         <Container>

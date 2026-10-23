@@ -1,0 +1,21 @@
+.hero { padding-block: var(--space-12) var(--section-space); }
+.grid { display: grid; gap: var(--space-12); }
+.copy { align-self: center; min-inline-size: 0; inline-size: 100%; }
+.copy h1 span { font-weight: 400; }
+.intro { max-inline-size: 34rem; margin-block-start: var(--space-6); color: var(--color-muted); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); inline-size: 100%; min-inline-size: 0; margin-block-start: var(--space-8); }
+.textLink { display: inline-flex; align-items: center; min-block-size: 2.75rem; font-size: 0.875rem; font-weight: 600; }
+.meta { margin-block-start: var(--space-4); color: var(--color-muted); font-size: var(--text-small); }
+.visual { position: relative; display: grid; place-items: center; inline-size: min(100%, 26rem); margin-inline: auto; }
+.ring { position: absolute; inset-block-start: 22%; inline-size: 100%; }
+.screen { position: relative; inline-size: min(78%, 15.5rem); }
+
+@media (min-width: 48rem) {
+  .grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: center; gap: var(--space-8); }
+  .screen { inline-size: min(86%, 15.5rem); }
+}
+
+@media (min-width: 64rem) {
+  .hero { padding-block-start: var(--space-16); }
+  .grid { gap: var(--space-16); }
+}
