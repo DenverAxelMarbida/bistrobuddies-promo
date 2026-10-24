@@ -15,11 +15,12 @@ export function OriginStory() {
     media.add('(prefers-reduced-motion: no-preference)', () => {
       gsap.from('[data-origin-reveal]', {
         autoAlpha: 0,
-        y: 12,
-        duration: 0.38,
-        stagger: 0.06,
+        y: 10,
+        filter: 'blur(4px)',
+        duration: 0.34,
+        stagger: 0.05,
         ease: 'power1.out',
-        clearProps: 'opacity,transform,visibility',
+        clearProps: 'opacity,transform,visibility,filter',
         scrollTrigger: {
           trigger: section.current,
           start: 'top 82%',

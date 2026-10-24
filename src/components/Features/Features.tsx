@@ -57,10 +57,11 @@ export function Features() {
       gsap.utils.toArray<HTMLElement>('[data-feature-item]', section.current).forEach((item) => {
         gsap.from(item, {
           autoAlpha: 0,
-          y: 12,
-          duration: 0.35,
+          y: 10,
+          filter: 'blur(4px)',
+          duration: 0.34,
           ease: 'power1.out',
-          clearProps: 'opacity,transform,visibility',
+          clearProps: 'opacity,transform,visibility,filter',
           scrollTrigger: {
             trigger: item,
             start: 'top 88%',

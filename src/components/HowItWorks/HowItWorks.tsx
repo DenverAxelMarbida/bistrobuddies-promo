@@ -54,7 +54,7 @@ export function HowItWorks() {
   const [motionMode, setMotionMode] = useState<MotionMode>('static')
 
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 64rem) and (min-height: 48rem)')
+    const desktop = window.matchMedia('(min-width: 64rem) and (min-height: 36rem)')
     const mobile = window.matchMedia('(max-width: 63.99rem)')
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
     const queries = [desktop, mobile, reduce]
@@ -65,11 +65,13 @@ export function HowItWorks() {
     const textScaleObserver = new MutationObserver(updateMode)
 
     queries.forEach((query) => query.addEventListener('change', updateMode))
+    window.addEventListener('resize', updateMode)
     textScaleObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'style'] })
     updateMode()
 
     return () => {
       queries.forEach((query) => query.removeEventListener('change', updateMode))
+      window.removeEventListener('resize', updateMode)
       textScaleObserver.disconnect()
     }
   }, [])
@@ -81,10 +83,11 @@ export function HowItWorks() {
       gsap.utils.toArray<HTMLElement>('[data-walkthrough-static] > li', section.current).forEach((card) => {
         gsap.from(card, {
           autoAlpha: 0,
-          y: 12,
-          duration: 0.35,
+          y: 10,
+          filter: 'blur(4px)',
+          duration: 0.34,
           ease: 'power1.out',
-          clearProps: 'opacity,transform,visibility',
+          clearProps: 'opacity,transform,visibility,filter',
           scrollTrigger: {
             trigger: card,
             start: 'top 90%',
@@ -104,16 +107,20 @@ export function HowItWorks() {
     if (!root || !enhancedTrack || !visual || steps.length !== walkthroughSteps.length || layers.length !== walkthroughSteps.length) return
 
     root.dataset.enhanced = 'true'
-    gsap.set(layers, { autoAlpha: 0, scale: 0.975 })
-    gsap.set(layers[0], { autoAlpha: 1, scale: 1 })
+    gsap.set(layers, { autoAlpha: 0, scale: 0.975, y: 8 })
+    gsap.set(layers[0], { autoAlpha: 1, scale: 1, y: 0 })
 
     const updateVisual = (activeIndex: number) => {
+      steps.forEach((step, index) => {
+        step.dataset.active = String(index === activeIndex)
+      })
       layers.forEach((layer, index) => {
         gsap.to(layer, {
           autoAlpha: index === activeIndex ? 1 : 0,
           scale: index === activeIndex ? 1 : 0.975,
-          duration: 0.28,
-          ease: 'power1.out',
+          y: index === activeIndex ? 0 : 8,
+          duration: 0.36,
+          ease: 'power2.out',
           overwrite: true,
         })
       })
@@ -134,6 +141,7 @@ export function HowItWorks() {
 
     return () => {
       gsap.killTweensOf(layers)
+      steps.forEach((step) => delete step.dataset.active)
       delete root.dataset.enhanced
     }
   }, { scope: section, dependencies: [motionMode], revertOnUpdate: true })
