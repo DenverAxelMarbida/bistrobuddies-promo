@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import type { ScreenshotId } from '../../content/assets'
-import { gsap, ScrollTrigger } from '../../lib/motion'
+import { gsap, revealOnScroll, ScrollTrigger } from '../../lib/motion'
 import { Container } from '../Container/Container'
 import { ScreenshotFrame } from '../ScreenshotFrame/ScreenshotFrame'
 import { SectionLabel } from '../SectionLabel/SectionLabel'
@@ -80,22 +80,7 @@ export function HowItWorks() {
     if (motionMode === 'static') return
 
     if (motionMode === 'mobile') {
-      gsap.utils.toArray<HTMLElement>('[data-walkthrough-static] > li', section.current).forEach((card) => {
-        gsap.from(card, {
-          autoAlpha: 0,
-          y: 10,
-          filter: 'blur(4px)',
-          duration: 0.34,
-          ease: 'power1.out',
-          clearProps: 'opacity,transform,visibility,filter',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-          },
-        })
-      })
-      return
+      return revealOnScroll(section.current, '[data-walkthrough-static] > li')
     }
 
     const root = section.current

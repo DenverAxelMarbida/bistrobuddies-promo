@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import type { ScreenshotId } from '../../content/assets'
-import { gsap } from '../../lib/motion'
+import { gsap, revealOnScroll } from '../../lib/motion'
 import { Container } from '../Container/Container'
 import { ScreenshotFrame } from '../ScreenshotFrame/ScreenshotFrame'
 import { SectionLabel } from '../SectionLabel/SectionLabel'
@@ -54,21 +54,7 @@ export function Features() {
     const media = gsap.matchMedia()
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.utils.toArray<HTMLElement>('[data-feature-item]', section.current).forEach((item) => {
-        gsap.from(item, {
-          autoAlpha: 0,
-          y: 10,
-          filter: 'blur(4px)',
-          duration: 0.34,
-          ease: 'power1.out',
-          clearProps: 'opacity,transform,visibility,filter',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 88%',
-            toggleActions: 'play none none none',
-          },
-        })
-      })
+      return revealOnScroll(section.current, '[data-feature-item]')
     })
 
     return () => media.revert()

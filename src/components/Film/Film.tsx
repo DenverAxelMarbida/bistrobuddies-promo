@@ -1,31 +1,136 @@
-import { useRef, type MouseEvent } from 'react'
+import { useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent, type SyntheticEvent } from 'react'
 import { film } from '../../content/assets'
+import { gsap } from '../../lib/motion'
 import { Container } from '../Container/Container'
 import { SectionLabel } from '../SectionLabel/SectionLabel'
 import styles from './Film.module.css'
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export function Film() {
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const playButtonRef = useRef<HTMLButtonElement>(null)
+  const motionRef = useRef<ReturnType<typeof gsap.timeline> | null>(null)
+  const closingRef = useRef(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+    const dialog = dialogRef.current
+
+    return () => {
+      motionRef.current?.kill()
+      motionRef.current = null
+      video?.pause()
+      if (dialog?.open) dialog.close()
+    }
+  }, [])
 
   function openFilm() {
     const dialog = dialogRef.current
-    if (!dialog) return
+    const panel = panelRef.current
+    if (!dialog || !panel || dialog.open) return
+
+    const reduce = prefersReducedMotion()
+    closingRef.current = false
+    motionRef.current?.kill()
+    motionRef.current = null
+
+    if (!reduce) {
+      gsap.set(panel, { autoAlpha: 0, scale: 0.96, y: 14, transformOrigin: '50% 50%' })
+    }
+
+    dialog.dataset.state = 'opening'
     if (typeof dialog.showModal === 'function') dialog.showModal()
     else dialog.setAttribute('open', '')
+
+    void dialog.offsetWidth
+    dialog.dataset.state = 'open'
+
+    if (reduce) {
+      gsap.set(panel, { autoAlpha: 1, scale: 1, y: 0 })
+    } else {
+      motionRef.current = gsap.timeline().to(panel, {
+        autoAlpha: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power3.out',
+      })
+    }
+
     void videoRef.current?.play().catch(() => {})
   }
 
-  function closeFilm() {
-    dialogRef.current?.close()
-  }
-
-  function handleClose() {
+  function handleClosed() {
+    motionRef.current?.kill()
+    motionRef.current = null
+    closingRef.current = false
+    const dialog = dialogRef.current
+    if (dialog) delete dialog.dataset.state
+    if (panelRef.current) {
+      gsap.set(panelRef.current, { clearProps: 'opacity,visibility,transform,transformOrigin' })
+    }
     videoRef.current?.pause()
   }
 
+  function finishClose() {
+    const dialog = dialogRef.current
+    motionRef.current = null
+    if (!dialog) return
+
+    if (dialog.open) {
+      if (typeof dialog.close === 'function') dialog.close()
+      else {
+        dialog.removeAttribute('open')
+        handleClosed()
+      }
+    }
+
+    playButtonRef.current?.focus({ preventScroll: true })
+  }
+
+  function beginClose() {
+    const dialog = dialogRef.current
+    const panel = panelRef.current
+    if (!dialog || !panel || !dialog.open || closingRef.current) return
+
+    closingRef.current = true
+    videoRef.current?.pause()
+    motionRef.current?.kill()
+    motionRef.current = null
+
+    if (prefersReducedMotion()) {
+      finishClose()
+      return
+    }
+
+    dialog.dataset.state = 'closing'
+    motionRef.current = gsap.timeline({ onComplete: finishClose }).to(panel, {
+      autoAlpha: 0,
+      scale: 0.97,
+      duration: 0.3,
+      ease: 'power2.inOut',
+    })
+  }
+
+  function handleCancel(event: SyntheticEvent<HTMLDialogElement>) {
+    event.preventDefault()
+    beginClose()
+  }
+
+  function handleKeyDown(event: ReactKeyboardEvent<HTMLDialogElement>) {
+    if (event.key === 'Escape' && closingRef.current) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
   function handleDialogClick(event: MouseEvent<HTMLDialogElement>) {
-    if (event.target === dialogRef.current) closeFilm()
+    if (event.target === dialogRef.current) beginClose()
   }
 
   return (
@@ -42,10 +147,13 @@ export function Film() {
         </div>
 
         <button
+          ref={playButtonRef}
           type="button"
           className={styles.posterButton}
           onClick={openFilm}
           aria-describedby="film-description"
+          aria-haspopup="dialog"
+          aria-controls="film-dialog"
         >
           <img
             src={film.poster.src}
@@ -67,15 +175,18 @@ export function Film() {
 
       <dialog
         ref={dialogRef}
+        id="film-dialog"
         className={styles.dialog}
         aria-labelledby="film-dialog-title"
-        onClose={handleClose}
+        onCancel={handleCancel}
+        onClose={handleClosed}
+        onKeyDown={handleKeyDown}
         onClick={handleDialogClick}
       >
-        <div className={styles.panel}>
+        <div ref={panelRef} className={styles.panel}>
           <div className={styles.head}>
             <h2 id="film-dialog-title">BistroBuddies film</h2>
-            <button type="button" className={styles.close} onClick={closeFilm} aria-label="Close film">
+            <button type="button" className={styles.close} onClick={beginClose} aria-label="Close film">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
                 <path d="m6 6 12 12M18 6 6 18" />
               </svg>

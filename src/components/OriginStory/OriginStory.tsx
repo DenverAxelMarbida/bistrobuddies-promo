@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { brand } from '../../content/assets'
-import { gsap } from '../../lib/motion'
+import { gsap, revealOnScroll } from '../../lib/motion'
 import { Container } from '../Container/Container'
 import { SectionLabel } from '../SectionLabel/SectionLabel'
 import styles from './OriginStory.module.css'
@@ -13,20 +13,7 @@ export function OriginStory() {
     const media = gsap.matchMedia()
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.from('[data-origin-reveal]', {
-        autoAlpha: 0,
-        y: 10,
-        filter: 'blur(4px)',
-        duration: 0.34,
-        stagger: 0.05,
-        ease: 'power1.out',
-        clearProps: 'opacity,transform,visibility,filter',
-        scrollTrigger: {
-          trigger: section.current,
-          start: 'top 82%',
-          toggleActions: 'play none none none',
-        },
-      })
+      return revealOnScroll(section.current, '[data-origin-reveal]')
     })
 
     return () => media.revert()
