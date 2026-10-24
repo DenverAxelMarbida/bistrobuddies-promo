@@ -83,7 +83,7 @@ export function Features() {
           </div>
           <p>The app keeps the menu, drink choices, payment instructions, delivery progress, and order history together.</p>
         </div>
-        <ul className={styles.list}>
+        <ul className={styles.list} role="list">
           {features.map((feature, index) => (
             <li className={index === 0 ? `${styles.item} ${styles.lead}` : styles.item} data-feature-item key={feature.title}>
               <div className={styles.copy}>

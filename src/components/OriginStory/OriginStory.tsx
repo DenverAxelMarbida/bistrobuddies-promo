@@ -36,9 +36,9 @@ export function OriginStory() {
       <Container className={styles.grid}>
         <div className={styles.mark} data-origin-reveal>
           <img
-            src={brand.logo.src}
-            width={brand.logo.width}
-            height={brand.logo.height}
+            src={brand.logoMedium.src}
+            width={brand.logoMedium.width}
+            height={brand.logoMedium.height}
             alt="BistroBuddies Coffee Shop"
             loading="lazy"
             decoding="async"

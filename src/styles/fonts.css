@@ -1,2 +1,15 @@
-@import '@fontsource-variable/fraunces';
-@import '@fontsource-variable/manrope';
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('../assets/fonts/fraunces-latin.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('../assets/fonts/manrope-latin.woff2') format('woff2-variations');
+}

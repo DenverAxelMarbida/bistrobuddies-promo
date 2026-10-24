@@ -146,7 +146,7 @@ export function HowItWorks() {
           <h2 id="walkthrough-title">Your order, step by step.</h2>
           <p>Browse first. Sign in when you are ready to order.</p>
         </div>
-        <ol className={styles.staticList} data-walkthrough-static>
+        <ol className={styles.staticList} role="list" data-walkthrough-static>
           {walkthroughSteps.map((step) => (
             <li className={styles.staticStep} key={step.title}>
               <div className={styles.stepCopy}>
@@ -158,7 +158,7 @@ export function HowItWorks() {
           ))}
         </ol>
         <div className={styles.enhanced} data-walkthrough-enhanced>
-          <ol className={styles.narrative}>
+          <ol className={styles.narrative} role="list">
             {walkthroughSteps.map((step, index) => (
               <li className={styles.narrativeStep} data-walkthrough-step={index} key={step.title}>
                 <div>

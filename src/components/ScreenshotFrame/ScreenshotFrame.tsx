@@ -24,7 +24,7 @@ function ScreenshotImage({ screenshot, priority }: Pick<Props, 'screenshot' | 'p
           height={asset.height}
           alt={asset.alt}
           loading={priority ? 'eager' : 'lazy'}
-          fetchPriority={priority ? 'high' : 'auto'}
+          fetchPriority={priority ? 'high' : 'low'}
           decoding="async"
           onError={() => setFailed(true)}
         />

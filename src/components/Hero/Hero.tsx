@@ -27,10 +27,9 @@ export function Hero() {
           clearProps: 'opacity,transform,visibility',
         })
         .from('[data-hero-visual]', {
-          autoAlpha: 0,
           y: 18,
           duration: 0.6,
-          clearProps: 'opacity,transform,visibility',
+          clearProps: 'transform',
         }, 0.12)
     })
 

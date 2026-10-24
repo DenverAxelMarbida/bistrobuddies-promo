@@ -45,14 +45,13 @@ export function Film() {
           type="button"
           className={styles.posterButton}
           onClick={openFilm}
-          aria-label="Watch the BistroBuddies film, 25 seconds"
           aria-describedby="film-description"
         >
           <img
             src={film.poster.src}
             width={film.poster.width}
             height={film.poster.height}
-            alt="BistroBuddies film title card beside a phone showing the app menu."
+            alt=""
           />
           <span className={styles.playBadge} aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

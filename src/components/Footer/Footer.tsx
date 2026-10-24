@@ -9,7 +9,7 @@ export function Footer() {
       <Container>
         <div className={styles.main}>
           <a href="#top" className={styles.brand} aria-label="BistroBuddies, back to top">
-            <img src={brand.logo.src} width={brand.logo.width} height={brand.logo.height} alt="BistroBuddies Coffee Shop" loading="lazy" />
+            <img src={brand.logoSmall.src} width={brand.logoSmall.width} height={brand.logoSmall.height} alt="BistroBuddies Coffee Shop" loading="lazy" />
           </a>
           <div className={styles.about}>
             <p>Coffee made with fresh beans.<br />Your next order, in your pocket.</p>
