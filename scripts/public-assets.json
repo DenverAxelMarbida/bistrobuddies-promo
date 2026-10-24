@@ -1,5 +1,11 @@
 {
-  "restrictedStems": ["home", "checkout-1", "checkout-2", "checkout-3", "order-2"],
+  "restrictedStems": [
+    "home",
+    "checkout-1",
+    "checkout-2",
+    "checkout-3",
+    "order-2"
+  ],
   "restrictedHashes": [
     "12e7fc31c428921c6b5cab2566ff0ee2bf1003d6007e37b467c8824cca17d0f5",
     "2d9712235a35f1a1814288abcbc15c0dd43e4f89d95cd21ee7fddbbfcd9e5bf4",
@@ -10,6 +16,8 @@
   "approved": {
     "brand/BistroBuddiesLogo.png": "95d6c63924cad34c5ab2cfbac2eb385de18f5b507c46edb7220feb2b387c50f1",
     "downloads/BistroBuddies.apk": "12bf82b502500f2eabd9e2942fa60c5624b62e135494a20a4ee8154a446cd5fd",
+    "media/brag-poster.jpg": "fac2415d55bd36ee2ea9bc9988a8d82a9cf73f043c6849121ee953f2856d17bc",
+    "media/brag.mp4": "b27f70354f114487defc7b0f194ce0bd29b31a85e8b9f59330952d951eeaf223",
     "screenshots/cart-1.jpg": "088f26cbbef76d3275baf2802dec5aa66ccf9a4d0ecdb4ac740bc2e156afbe5d",
     "screenshots/cart-2.jpg": "bbbc054306543f9dfae9c232a43e1859daf47ce526bc4430415d3775fc565f88",
     "screenshots/loading.jpg": "8617955b27f5e762dc0624f26004d219a87489c4e5b378334f1c479a7467c829",

@@ -1,7 +1,4 @@
 .editorial { display: grid; gap: var(--space-8); }
-.film { padding-block: var(--section-space); }
-.filmInner { display: grid; gap: var(--space-8); }
-.filmInner > p { align-self: end; max-inline-size: 31rem; color: var(--color-muted); }
 .downloadSection {
   padding-block: var(--section-space);
   background: var(--color-espresso);
@@ -14,7 +11,7 @@
 .installNote { margin-block-start: var(--space-6); max-inline-size: 32rem; font-size: var(--text-small); }
 
 @media (min-width: 48rem) {
-  .editorial, .filmInner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-12); }
+  .editorial { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-12); }
 }
 
 @media (min-width: 64rem) {

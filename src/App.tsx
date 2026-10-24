@@ -40,6 +40,7 @@ function App() {
 
   return (
     <>
+      <div id="top" />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Header />
       <PageShell />

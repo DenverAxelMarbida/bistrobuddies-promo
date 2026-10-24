@@ -41,3 +41,6 @@ backups/
 # Local temporary files
 tmp/
 temp/
+
+# Film production sources and renders
+/film/

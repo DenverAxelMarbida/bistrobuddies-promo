@@ -2,6 +2,7 @@ import { apk } from '../../content/assets'
 import { Button } from '../Button/Button'
 import { Container } from '../Container/Container'
 import { Features } from '../Features/Features'
+import { Film } from '../Film/Film'
 import { Hero } from '../Hero/Hero'
 import { HowItWorks } from '../HowItWorks/HowItWorks'
 import { OriginStory } from '../OriginStory/OriginStory'
@@ -16,15 +17,7 @@ export function PageShell() {
       <HowItWorks />
       <Features />
 
-      <section className={styles.film} id="film" aria-labelledby="film-title">
-        <Container className={styles.filmInner}>
-          <div>
-            <SectionLabel>The BistroBuddies film</SectionLabel>
-            <h2 id="film-title">A closer look,<br />coming soon.</h2>
-          </div>
-          <p>The short app film is not available yet. In the meantime, browse the app preview or download BistroBuddies for Android.</p>
-        </Container>
-      </section>
+      <Film />
 
       <section className={styles.downloadSection} id="download" aria-labelledby="download-title">
         <Container className={styles.editorial}>

@@ -38,6 +38,12 @@ export const screenshots: Record<ScreenshotId, Screenshot> = {
   'loading': { src: '/screenshots/loading.jpg', width: 1080, height: 2400, alt: 'BistroBuddies app splash screen with logo', safeForPublic: true },
 };
 
+export const film = {
+  poster: { src: '/media/brag-poster.jpg', width: 1920, height: 1080 },
+  video: '/media/brag.mp4',
+  duration: '0:25',
+} as const
+
 export const apk = {
   href: '/downloads/BistroBuddies.apk',
   fileName: 'BistroBuddies.apk',

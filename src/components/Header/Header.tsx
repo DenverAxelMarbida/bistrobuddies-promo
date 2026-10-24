@@ -6,7 +6,7 @@ import styles from './Header.module.css'
 
 export function Header() {
   return (
-    <header className={styles.header} id="top">
+    <header className={styles.header}>
       <Container className={styles.inner}>
         <a className={styles.brand} href="#top" aria-label="BistroBuddies, back to top">
           <img src={brand.logo.src} width={brand.logo.width} height={brand.logo.height} alt="BistroBuddies Coffee Shop" />
